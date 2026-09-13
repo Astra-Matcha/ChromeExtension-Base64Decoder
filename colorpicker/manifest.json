@@ -1,15 +1,27 @@
 {
   "manifest_version": 3,
-  "name": "ColorSquare",
-  "description": "Shows color from HEXcode",
-  "version": "0.1",
-  "action": {
-    "default_popup": "index.html",
-    "default_icon": "icon.png"
-  },
+  "name": "ColorPeek - Color Code Hover Preview",
+  "version": "1.0.0",
+  "description": "웹페이지 내 RGB 및 HEX 컬러 코드에 마우스를 올리면 색상을 미리 보여줍니다.",
   "icons": {
     "16": "icon.png",
     "48": "icon.png",
     "128": "icon.png"
-  }
+  },
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
 }
