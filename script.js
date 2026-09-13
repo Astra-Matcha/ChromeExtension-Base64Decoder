@@ -3,21 +3,37 @@ document.addEventListener('DOMContentLoaded', () => {
   const outputArea = document.getElementById('output');
   const convertBtn = document.getElementById('convertBtn');
 
-  convertBtn.addEventListener('click', () => {
-    const inputText = inputArea.value.trim();
+  // Decode Logic
+  function decodeBase64(str) {
+    let cleanStr = str.trim()
+      .replace(/-/g, '+')
+      .replace(/_/g, '/');
 
-    if (!inputText) {
+    while (cleanStr.length % 4 !== 0) {
+      cleanStr += '=';
+    }
+
+    const binaryString = atob(cleanStr);
+
+    const bytes = Uint8Array.from(binaryString, (char) => char.charCodeAt(0));
+    const decoder = new TextDecoder('utf-8', { fatal: true });
+    
+    return decoder.decode(bytes);
+  }
+
+  // Event listener for Convert button
+  convertBtn.addEventListener('click', () => {
+    const rawInput = inputArea.value;
+
+    if (!rawInput.trim()) {
       outputArea.value = '';
       return;
     }
 
     try {
-      // Decode Base64 string (handles standard UTF-8 text safely)
-      const decodedText = decodeURIComponent(
-        escape(atob(inputText))
-      );
-      outputArea.value = decodedText;
-    } catch (e) {
+      const result = decodeBase64(rawInput);
+      outputArea.value = result;
+    } catch (error) {
       outputArea.value = 'ERROR';
     }
   });
