@@ -14,15 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const binaryString = atob(cleanStr);
-
     const bytes = Uint8Array.from(binaryString, (char) => char.charCodeAt(0));
     const decoder = new TextDecoder('utf-8', { fatal: true });
     
     return decoder.decode(bytes);
   }
 
-  // Event listener for Convert button
-  convertBtn.addEventListener('click', () => {
+  // Handle Decoding Action
+  function handleDecode() {
     const rawInput = inputArea.value;
 
     if (!rawInput.trim()) {
@@ -35,6 +34,16 @@ document.addEventListener('DOMContentLoaded', () => {
       outputArea.value = result;
     } catch (error) {
       outputArea.value = 'ERROR';
+    }
+  }
+
+  // Event listener for Convert button
+  convertBtn.addEventListener('click', handleDecode);
+
+  // Shortcut: Press Ctrl+Enter (or Cmd+Enter) to convert
+  inputArea.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+      handleDecode();
     }
   });
 });
