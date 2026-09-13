@@ -1,22 +1,22 @@
 :root {
-  --primary-color: #0088fe;     /* Bright Icon Blue */
-  --primary-hover: #0066cc;     /* Deep Accent Blue */
-  --bg-color: #e8f3fe;          /* Soft Pale Blue (Icon BG Base) */
-  --card-bg: #ffffff;           /* Clean White */
-  --text-color: #0a2540;        /* Deep Navy Text */
-  --subtext-color: #4a6572;     /* Muted Blue-Grey */
-  --border-color: #b8d9f8;      /* Soft Blue Border */
+  --primary-color: #0088fe;
+  --primary-hover: #0066cc;
+  --bg-color: #e8f3fe;
+  --card-bg: #ffffff;
+  --text-color: #0a2540;
+  --subtext-color: #4a6572;
+  --border-color: #b8d9f8;
   --error-color: #ff3b30;
   --border-radius: 8px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-color: #0a131d;        /* Deep Navy Dark Theme */
-    --card-bg: #142232;         /* Dark Card BG */
-    --text-color: #e8f3fe;      /* Light Pale Blue Text */
-    --subtext-color: #82a0bc;   /* Muted Dark Blue-Grey */
-    --border-color: #1f3750;    /* Dark Blue Border */
+    --bg-color: #0a131d;
+    --card-bg: #142232;
+    --text-color: #e8f3fe;
+    --subtext-color: #82a0bc;
+    --border-color: #1f3750;
   }
 }
 
@@ -32,6 +32,9 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   padding: 16px;
+  height: auto;
+  min-height: 200px;
+  margin: 0;
 }
 
 /* Header Section */
