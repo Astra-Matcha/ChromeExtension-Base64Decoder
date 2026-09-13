@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const outputArea = document.getElementById('output');
   const convertBtn = document.getElementById('convertBtn');
 
-  // Decode Logic
   function decodeBase64(str) {
     let cleanStr = str.trim()
       .replace(/-/g, '+')
@@ -20,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     return decoder.decode(bytes);
   }
 
-  // Handle Decoding Action
   function handleDecode() {
     const rawInput = inputArea.value;
 
@@ -37,16 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Event listener for Convert button
+  // Click event
   convertBtn.addEventListener('click', handleDecode);
 
-  // Shortcut: Press Ctrl+Enter (or Cmd+Enter) to convert
+  // Shortcut: Ctrl+Enter or Cmd+Enter
   inputArea.addEventListener('keydown', (e) => {
     if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
       handleDecode();
     }
-    
   });
-  // 1. Button click
-  convertBtn.addEventListener('click', handleDecode);
 });
