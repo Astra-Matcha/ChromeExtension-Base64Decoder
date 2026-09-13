@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const result = decodeBase64(rawInput);
       outputArea.value = result;
     } catch (error) {
-      outputArea.value = 'ERROR';
+      outputArea.value = 'Invalid Input';
     }
   }
 
