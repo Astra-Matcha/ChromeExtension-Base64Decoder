@@ -45,5 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
       handleDecode();
     }
+    
   });
+  // 1. Button click
+  convertBtn.addEventListener('click', handleDecode);
 });
