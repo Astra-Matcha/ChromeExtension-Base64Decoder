@@ -6,7 +6,6 @@
   --text-color: #0a2540;
   --subtext-color: #4a6572;
   --border-color: #b8d9f8;
-  --error-color: #ff3b30;
   --border-radius: 8px;
 }
 
@@ -32,30 +31,14 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   padding: 16px;
-  height: auto;
-  min-height: 200px;
-  margin: 0;
-}
-
-/* Header Section */
-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-
-header img {
-  width: 24px;
-  height: 24px;
 }
 
 header h1 {
   font-size: 16px;
   font-weight: 600;
+  margin-bottom: 12px;
 }
 
-/* Textarea Input/Output Areas */
 .input-group {
   display: flex;
   flex-direction: column;
@@ -71,7 +54,7 @@ label {
 
 textarea {
   width: 100%;
-  height: 80px;
+  height: 90px;
   padding: 10px;
   font-family: monospace;
   font-size: 13px;
@@ -79,7 +62,7 @@ textarea {
   color: var(--text-color);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
-  resize: vertical;
+  resize: none;
   outline: none;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -89,48 +72,28 @@ textarea:focus {
   box-shadow: 0 0 0 2px rgba(0, 136, 254, 0.2);
 }
 
-/* Action Controls & Buttons */
+textarea[readonly] {
+  opacity: 0.9;
+}
+
 .controls {
   display: flex;
-  gap: 8px;
   margin-bottom: 12px;
 }
 
 button {
-  flex: 1;
-  padding: 8px 12px;
+  width: 100%;
+  padding: 10px;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   border: none;
   border-radius: var(--border-radius);
   cursor: pointer;
-  transition: background-color 0.2s ease, opacity 0.2s ease;
-}
-
-.btn-primary {
   background-color: var(--primary-color);
   color: #ffffff;
+  transition: background-color 0.2s ease;
 }
 
-.btn-primary:hover {
+button:hover {
   background-color: var(--primary-hover);
-}
-
-.btn-secondary {
-  background-color: var(--card-bg);
-  border: 1px solid var(--border-color);
-  color: var(--text-color);
-}
-
-.btn-secondary:hover {
-  background-color: var(--border-color);
-}
-
-/* Feedback & Messages */
-.error-message {
-  font-size: 12px;
-  color: var(--error-color);
-  min-height: 16px;
-  margin-top: -6px;
-  margin-bottom: 8px;
 }
