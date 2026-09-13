@@ -1,2 +1,2 @@
-# ChromeExtension-Base64Decoder
-Chrome Extension that decodes base64
+# ChromeExtensions
+Chrome Extension Collection
